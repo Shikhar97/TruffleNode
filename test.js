@@ -4,6 +4,7 @@ const expect = require('expect');
 
 let bill;
 
+// Test Case 1
 describe('GET /bills', () => {
   it('Return an empty list of Medical Bills', async () => {
     const res = await request(app).get('/bills');
@@ -12,6 +13,7 @@ describe('GET /bills', () => {
   });
 });
 
+// Test Case 2
 describe('POST /bills', () => {
     it('Create a new bill', async () => {
         bill = {
@@ -29,6 +31,7 @@ describe('POST /bills', () => {
     });
 });
 
+// Test Case 3
 describe('GET /bills', () => {
   it('Return the previously created bill', async () => {
     const res = await request(app).get('/bills');
