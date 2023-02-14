@@ -1,0 +1,28 @@
+{
+  "name": "trufflenode",
+  "version": "1.0.0",
+  "description": "Internship Assignment ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "start": "node ./node_modules/nodemon/bin/nodemon.js index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shikhar97/TruffleNode.git"
+  },
+  "author": "Shikhar G",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shikhar97/TruffleNode/issues"
+  },
+  "homepage": "https://github.com/Shikhar97/TruffleNode#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "expect": "^29.4.2",
+    "express": "^4.18.2",
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  }
+}
