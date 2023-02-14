@@ -1,28 +1,38 @@
 const request = require('supertest');
 const app = require('../TruffleNode');
-var expect = require('expect');
+const expect = require('expect');
 
-describe('GET /items', () => {
-  it('should return an empty list of medical bills', async () => {
-    const res = await request(app).get('/items');
+let bill;
+
+describe('GET /bills', () => {
+  it('Return an empty list of Medical Bills', async () => {
+    const res = await request(app).get('/bills');
     expect.expect(res.statusCode).toBe(200);
     expect.expect(res.body).toEqual([]);
   });
 });
 
-describe('POST /items', () => {
-  it('should create a new medical bill', async () => {
-    const medicalBill = {
-      patientName: 'John Doe',
-      patientAddress: '123 Main St',
-      hospitalName: 'General Hospital',
-      dateOfService: '2022-01-01',
-      billAmount: 1000
-    };
-    const res = await request(app)
-      .post('/items')
-      .send(medicalBill);
-      expect.expect(res.statusCode).toBe(200);
-      expect.expect(res.body).toEqual(medicalBill);
+describe('POST /bills', () => {
+    it('Create a new bill', async () => {
+        bill = {
+            patient_name: 'Shikhar G',
+            patient_address: '1123 E Uni Dr, Arizona',
+            hospital_name: 'St. Louis Hospital',
+            date_of_service: '2021-04-13',
+            bill_amount: 100
+        };
+        const res = await request(app)
+            .post('/bills')
+            .send(bill);
+        expect.expect(res.statusCode).toBe(200);
+        expect.expect(res.body).toEqual(bill);
+    });
+});
+
+describe('GET /bills', () => {
+  it('Return the previously created bill', async () => {
+    const res = await request(app).get('/bills');
+    expect.expect(res.statusCode).toBe(200);
+    expect.expect(res.body).toEqual([bill]);
   });
 });
